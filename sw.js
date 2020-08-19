@@ -49,15 +49,24 @@ const PRECACHE_URLS = [
   'css/styles.css'
   
 ];
-
-// The install handler takes care of precaching the resources we always need.
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(PRECACHE)
-      .then(cache => cache.addAll(PRECACHE_URLS))
-      .then(self.skipWaiting())
+self.addEventListener('install', (e) => {
+  console.log('[Service Worker] Install');
+  e.waitUntil(
+    caches.open(cacheName).then((cache) => {
+          console.log('[Service Worker] Caching all: app shell and content');
+      return cache.addAll(contentToCache);
+    })
   );
 });
+// The install handler takes care of precaching the resources we always need.
+// self.addEventListener('install', event => {
+//   event.waitUntil(
+//     caches.open(PRECACHE)
+//       .then(cache => cache.addAll(PRECACHE_URLS))
+//       .then(self.skipWaiting())
+//   );
+// });
+
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
