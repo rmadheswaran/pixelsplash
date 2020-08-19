@@ -2,8 +2,8 @@ var cacheName = 'pixel';
 var filesToCache = [
   '/',
   '/index.html',
-  '/assets/css/style.css',
-  '/assets/js/main.js'
+  '/css/style.css',
+  '/js/main.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
