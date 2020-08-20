@@ -1,4 +1,4 @@
-// var cacheName = 'pixel';
+ var cacheName = 'pixel';
  var filesToCache = [
    '/',
    'index.html',
